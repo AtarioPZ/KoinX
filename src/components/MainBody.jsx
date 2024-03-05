@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import Bitcoin from './bitcoin';
+import Ethereum from './ethereum';
 
 function Mainbody() {
   const [selectedCrypto, setSelectedCrypto] = useState(null);
@@ -40,7 +42,6 @@ function Mainbody() {
     }
     return null;
   };
-  
 
   return (
     <div className='container p-3'>
@@ -64,6 +65,8 @@ function Mainbody() {
           </div>
         </div>
       )}
+      {selectedCrypto === 'Ethereum' && <Ethereum />}
+      {selectedCrypto === 'Bitcoin' && <Bitcoin />}
     </div>
   );
 }
