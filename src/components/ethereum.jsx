@@ -1,4 +1,5 @@
 import { useEffect, useRef, memo } from 'react';
+import '../index.css';
 
 function Ethereum() {
   const container = useRef();
@@ -11,7 +12,8 @@ function Ethereum() {
       script.async = true;
       script.innerHTML = `
         {
-          "autosize": true,
+          "width": "600",
+          "height": "410",
           "symbol": "COINBASE:ETHUSD",
           "interval": "D",
           "timezone": "Etc/UTC",
@@ -33,12 +35,15 @@ function Ethereum() {
   }, []);
 
   return (
-    <div ref={container} className="tradingview-widget-container">
+    <div ref={container} className="tradingview-widget-container" >
       <div className="tradingview-widget-container__widget"></div>
       <div className="tradingview-widget-copyright">
         <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
           <span className="blue-text">Track all markets on TradingView</span>
         </a>
+      </div>
+      <div className='Details'>
+        
       </div>
     </div>
   );

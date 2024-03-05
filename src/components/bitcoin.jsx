@@ -40,6 +40,7 @@ function Bitcoin() {
           <span className="blue-text">Track all markets on TradingView</span>
         </a>
       </div>
+      
     </div>
   );
 }

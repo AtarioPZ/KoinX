@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Bitcoin from './bitcoin';
 import Ethereum from './ethereum';
+import SideContent from './SideContent';
 
 function Mainbody() {
   const [selectedCrypto, setSelectedCrypto] = useState(null);
@@ -44,29 +45,41 @@ function Mainbody() {
   };
 
   return (
-    <div className='container p-3'>
-      <div>
-        <p onClick={handleBackToCryptos} className="text-blue-500 cursor-pointer">
-          {selectedCrypto ? `Cryptocurrencies > ${selectedCrypto}` : 'Cryptocurrencies'}
-        </p>
-        {cryptoData && selectedCrypto && (
-          <div>
-            <p><b>$ {cryptoData[selectedCrypto.toLowerCase()].usd}</b></p>
-            <p>₹ {cryptoData[selectedCrypto.toLowerCase()].inr}</p>
-            <p> {get24hChange(cryptoData[selectedCrypto.toLowerCase()])} (24H)</p>
+    <div className="container mx-auto flex p-3">
+      <div className="w-2/3 mr-4">
+        <div>
+          <p onClick={handleBackToCryptos} className="text-blue-500 cursor-pointer">
+            {selectedCrypto ? `Cryptocurrencies > ${selectedCrypto}` : 'Cryptocurrencies'}
+          </p>
+          {cryptoData && selectedCrypto && (
+            <div>
+              <p>
+                <span className="font-bold">{selectedCrypto.toUpperCase()}</span> {/* Crypto Symbol (needs fixing) */}
+                <span className="text-gray-600"> {selectedCrypto} </span> 
+                <span className="text-gray-500"> (Rank #{cryptoData[selectedCrypto.toLowerCase()].market_cap_rank}) </span> {/* Crypto rank (needs fixing)*/}
+              </p>
+              <p>
+                <b>$ {cryptoData[selectedCrypto.toLowerCase()].usd}</b>
+                <span className="text-gray-500 ml-2">{get24hChange(cryptoData[selectedCrypto.toLowerCase()])} (24H)</span>
+              </p>
+              <p>₹ {cryptoData[selectedCrypto.toLowerCase()].inr}</p>
+            </div>
+          )}
+        </div>
+        {!selectedCrypto && (
+          <div className="mt-4">
+            <div className="bg-gray-200 p-4 rounded-md">
+              <p onClick={() => handleCryptoSelection('Ethereum')} className="cursor-pointer">Ethereum (ETH)</p>
+              <p onClick={() => handleCryptoSelection('Bitcoin')} className="cursor-pointer">Bitcoin (BTC)</p>
+            </div>
           </div>
         )}
+        {selectedCrypto === 'Ethereum' && <Ethereum />}
+        {selectedCrypto === 'Bitcoin' && <Bitcoin />}
       </div>
-      {!selectedCrypto && (
-        <div className="mt-4">
-          <div className="bg-gray-200 p-4 rounded-md">
-            <p onClick={() => handleCryptoSelection('Ethereum')} className="cursor-pointer">Ethereum (ETH)</p>            
-            <p onClick={() => handleCryptoSelection('Bitcoin')} className="cursor-pointer">Bitcoin (BTC)</p>            
-          </div>
-        </div>
-      )}
-      {selectedCrypto === 'Ethereum' && <Ethereum />}
-      {selectedCrypto === 'Bitcoin' && <Bitcoin />}
+      <div className="w-1/3">
+        <SideContent />
+      </div>
     </div>
   );
 }
