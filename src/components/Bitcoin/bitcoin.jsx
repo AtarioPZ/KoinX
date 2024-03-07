@@ -5,6 +5,7 @@ import Sentiments from './Sentiment';
 import About from './About';
 import Tokenomics from './Tokenomics';
 import TeamCard from '../TeamCard';
+import TrendingCoinCarousel from '../TrendingCoinCarousel';
 
 function Bitcoin() {
   const container = useRef();
@@ -77,6 +78,7 @@ function Bitcoin() {
       <About />
       <Tokenomics />
       <TeamCard />
+      <TrendingCoinCarousel />
     </div>
   );
 }
