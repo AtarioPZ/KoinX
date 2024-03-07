@@ -46,8 +46,8 @@ function Mainbody() {
   };
 
   return (
-    <div className="container mt-20 mx-auto flex p-3">
-      <div className="w-2/3 mr-4">
+    <div className="container mt-20 mx-auto p-3 flex flex-col md:flex-row">
+      <div className="w-full md:w-2/3 mr-4">
         <div>
             <div className='container my-2 bg-gray-100 py-2'>
                 <p onClick={handleBackToCryptos} className="text-blue-500 cursor-pointer">
@@ -66,7 +66,7 @@ function Mainbody() {
         {selectedCrypto === 'Ethereum' && <Ethereum />}
         {selectedCrypto === 'Bitcoin' && <Bitcoin />}
       </div>
-      <div className="w-1/3">
+      <div className="w-full md:w-1/3 mt-4 md:mt-0">
         <SideContent />
       </div>      
     </div>

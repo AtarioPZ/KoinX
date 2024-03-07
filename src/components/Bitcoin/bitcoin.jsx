@@ -66,7 +66,10 @@ function Bitcoin() {
     
     <div ref={container} className="tradingview-widget-container">
       <h1>Bitcoin Price Chart (USD)</h1>
-      <div className="tradingview-widget-container__widget"></div>
+      <div className='lg:h-[560px] h-[320px]'>
+        <div className="tradingview-widget-container__widget" style={{height:"100%", width:"100%"}}></div>
+      </div>
+      
       
       <SubLinks />
       <Fundamentals />
