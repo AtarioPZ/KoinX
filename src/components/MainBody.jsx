@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import Bitcoin from './bitcoin';
-import Ethereum from './ethereum';
+import Bitcoin from './Bitcoin/bitcoin';
+import Ethereum from './Etheruem/ethereum';
 import SideContent from './SideContent';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 function Mainbody() {
   const [selectedCrypto, setSelectedCrypto] = useState(null);
@@ -45,26 +46,14 @@ function Mainbody() {
   };
 
   return (
-    <div className="container mx-auto flex p-3">
+    <div className="container mt-20 mx-auto flex p-3">
       <div className="w-2/3 mr-4">
         <div>
-          <p onClick={handleBackToCryptos} className="text-blue-500 cursor-pointer">
-            {selectedCrypto ? `Cryptocurrencies > ${selectedCrypto}` : 'Cryptocurrencies'}
-          </p>
-          {cryptoData && selectedCrypto && (
-            <div>
-              <p>
-                <span className="font-bold">{selectedCrypto.toUpperCase()}</span> {/* Crypto Symbol (needs fixing) */}
-                <span className="text-gray-600"> {selectedCrypto} </span> 
-                <span className="text-gray-500"> (Rank #{cryptoData[selectedCrypto.toLowerCase()].market_cap_rank}) </span> {/* Crypto rank (needs fixing)*/}
-              </p>
-              <p>
-                <b>$ {cryptoData[selectedCrypto.toLowerCase()].usd}</b>
-                <span className="text-gray-500 ml-2">{get24hChange(cryptoData[selectedCrypto.toLowerCase()])} (24H)</span>
-              </p>
-              <p>₹ {cryptoData[selectedCrypto.toLowerCase()].inr}</p>
+            <div className='container my-2 bg-gray-100 py-2'>
+                <p onClick={handleBackToCryptos} className="text-blue-500 cursor-pointer">
+                    {selectedCrypto ? `Cryptocurrencies > ${selectedCrypto}` : 'Cryptocurrencies'}
+                </p>
             </div>
-          )}
         </div>
         {!selectedCrypto && (
           <div className="mt-4">
@@ -79,7 +68,7 @@ function Mainbody() {
       </div>
       <div className="w-1/3">
         <SideContent />
-      </div>
+      </div>      
     </div>
   );
 }
