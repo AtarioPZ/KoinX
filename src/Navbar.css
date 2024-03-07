@@ -50,7 +50,7 @@ nav {
 	}
 
 	nav div {
-		position: fixed;
+		position: absolute;
 		top: -100vh;
 		left: 0;
 		height: 100%;

@@ -102,15 +102,15 @@ function Sentiments() {
             </div>
           </div>
 
-          <div className="flex mt-2">
-            <div className="text-4xl bg-[#EBF9F4] text-[#0FBA83] px-10 py-12 rounded-full items-center flex">
+          <div className="flex flex-col md:flex-row mt-2">
+            <div className="text-4xl bg-[#EBF9F4] text-[#0FBA83] px-10 py-12 rounded-full items-center flex mb-4 md:mb-0 md:mr-4">
               76<div className="text-lg ">%</div>
             </div>
 
             <div className="px-10 mt-2">
               <div className="flex p-2 items-center">
                 <div className="text-[#7C7E8C] text-[15px] mr-9">Buy</div>
-                <div className="w-96 h-2">
+                <div className="w-full md:w-96 h-2">
                   <div className="bg-[#00B386] h-full rounded-lg "></div>
                 </div>
                 <div className="ml-3 text-[#7C7E8C] text-sm">76%</div>
@@ -118,7 +118,7 @@ function Sentiments() {
 
               <div className="flex p-2 items-center">
                 <div className="text-[#7C7E8C] text-[15px] mr-9">Hold</div>
-                <div className="w-8 h-2">
+                <div className="w-full md:w-8 h-2">
                   <div className="bg-[#C7C8CE] h-full rounded-lg "></div>
                 </div>
                 <div className="ml-3 text-[#7C7E8C] text-sm">8%</div>
@@ -126,7 +126,7 @@ function Sentiments() {
 
               <div className="flex p-2 items-center">
                 <div className="text-[#7C7E8C] text-[15px] mr-9">Sell</div>
-                <div className="w-16 h-2">
+                <div className="w-full md:w-16 h-2">
                   <div className="bg-[#F7324C] h-full rounded-lg "></div>
                 </div>
                 <div className="ml-3 text-[#7C7E8C] text-sm">16%</div>
@@ -134,6 +134,7 @@ function Sentiments() {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
